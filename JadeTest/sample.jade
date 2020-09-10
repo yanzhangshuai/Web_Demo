@@ -1,0 +1,79 @@
+//- doctype html
+//- html
+//-  head
+//-  body
+//-   h1.titleClass#titleID my First Jade Page
+//-     a(href='http://www.baidu.com',target='_blank')百度
+//-     .div 我是div
+
+//-         p 
+//-             span 第1行文本
+//-             | 第2行文本
+//-             | 第3行文本
+//-             | 第4行文本
+//-     script.
+//-         console.log("open mind");
+//-         console.log("learning quick");
+//-         console.log("work hard");
+
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='#{charset}')
+//-   body
+//-     h1.titleClass#titleID #{title}
+
+
+
+//- - var author = '1'
+
+//- if author = '2'
+//-     p 作者:#{author}
+//- else 
+//-     p 无作者
+
+
+//- - var persion = {name:'Jack',gender:'Male'}
+//- - for (var prop in persion)
+//-   p= persion[prop]
+
+
+//- - var employee = {name:'Jack',gender: 'male'}
+
+//- - each value,key in employee
+//-     p #{key}: #{value}
+
+//- - var languare = ['Java','JavaScript','c++']
+
+//- ul
+//-     each item in languare
+//-         li #{item}
+
+
+
+//- - var n = 0
+//- ul 
+//-  while n < 4
+//-   li= n++
+
+
+//- mixin sayHi
+//-     p Hi 
+//- div
+//-     +sayHi 
+//- mixin persionInfo(name,hobbies)
+//-     p #{name} hobbies:
+//-         ul.hobby 
+//-             each hobby in hobbies 
+//-                 li= hobby
+
+
+//- div 
+//-     +persionInfo('Jack',['movie','music'])
+
+//一行无意义的注释
+include header 
+
+block content
+  h1.titleClass#titleID #{title}
+  a(href='http://www.jackzxl.net', target='_blank') 我的主页

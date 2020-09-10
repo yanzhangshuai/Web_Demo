@@ -1,0 +1,186 @@
+// @width:10px;
+// @height:@width+10px;
+
+// #header{
+//     width:@width;
+//     height: @height;
+// }
+// .bordered {
+//     border-top: dotted 1px black;
+//     border-bottom: solid 2px black;
+//   }
+
+//   #menu a {
+//     color: #111;
+//     .bordered();
+//   }
+  
+//   .post a {
+//     color: red;
+//     .bordered;
+//   }
+
+//   .component{
+//       width: 300;
+//       @media (min-width:768px){
+//           width:600px;
+//           @media  (min-resolution: 192dpi) {
+//             background-image: url(/img/retina2x.png);
+//           }
+//       }
+//       @media (min-width: 1280px) {
+//         width: 800px;
+//       }
+//   }
+
+//   @base: 10%+5px;
+
+//   .base-component{
+//       border:@base solid red;
+//   }
+
+//   @min726:(min-width: 736px);   
+
+//   .element{
+//       @media @min726{
+//         font-size: 1.2rem;
+//       }
+//   }
+
+//   #bundle() {
+//     .button {
+//       display: block;
+//       border: 1px solid black;
+//       background-color: grey;
+//       &:hover {
+//         background-color: white;
+//       }
+//     }
+
+//   }
+
+//   #header a {
+//     color: orange;
+//     #bundle.button();  // 还可以书写为 #bundle > .button 形式
+//   }
+
+//   @property: color;
+
+// .widget {
+//   @{property}: #0ee;
+//   background-@{property}: #999;
+// }
+
+
+// .widget {
+//     color: #efefef;
+//     background-color: $color;
+//   }
+
+//   .button {
+//     &-ok {
+//       background-image: url("ok.png");
+//     }
+//     &-cancel {
+//       background-image: url("cancel.png");
+//     }
+  
+//     &-custom {
+//       background-image: url("custom.png");
+//     }
+//   }
+
+
+// .mixin() {
+//     box-shadow+: inset 0 0 10px #555;
+//   }
+//   .myclass {
+//     .mixin();
+//     box-shadow+: 0 0 20px black;
+//   }
+
+// .foo(@bg:#fff,@color:#9000){
+//     background-color: @bg;
+//     color: @color;
+// }
+
+// .uniq{
+//     .foo();
+// }
+// .importat{
+//     .foo(#000) !important;
+// }
+
+
+.mixin(@color){
+    color-1: @color;
+}
+.mixin(@color;@padding:2){
+    color-2:@color;
+    padding-2:@padding ;
+}
+
+// .mixin(@color; @padding; @margin: 2) {
+//     color-3: @color;
+//     padding-3: @padding;
+//     margin: @margin @margin @margin @margin;
+//   }
+
+//   .some .selector div{
+//       .mixin(#000)
+//   }
+
+
+//   .box-shadow(@x: 0; @y: 0; @blur: 1px; @color: #000) {
+//     -webkit-box-shadow: @arguments;
+//        -moz-box-shadow: @arguments;
+//             box-shadow: @arguments;
+//   }
+//   .big-block {
+//     .box-shadow(2px; 5px);
+//   }
+
+
+.loop(@counter) when (@counter < 10){
+    .loop((@counter + 1));
+    width: (0px + @counter); // code for each iteration
+}
+div {
+  .loop(5); // launch the loop
+}
+
+#theme.dark.navbar {
+    .colors(light) {
+      primary: purple;
+    }
+    .colors(dark) {
+      primary: black;
+      secondary: grey;
+    }
+  }
+  
+  .navbar {
+    @colors: #theme.dark.navbar.colors(dark);
+    background: @colors[primary];
+    border: 1px solid @colors[secondary];
+  }
+
+  #library() {
+    .rules() {
+      background: green;
+    }
+  }
+  .box {
+    @alias: #library.rules();
+  }
+
+
+  @dr: if(@my-option = true, {
+    button {
+      color: white;
+    }
+    a {
+      color: blue;
+    }
+  });
+  @dr();
