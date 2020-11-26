@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 100px;
+      background-color: lightcoral;
+    }
+
+    footer {
+      margin-top: auto;
+      height: 100px;
+      background-color: lawngreen;
+    }
+
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+    }
+
+
+    nav {
+      width: 220px;
+      order: -1;
+      background-color: lightgoldenrodyellow;
+    }
+
+    article {
+      flex: 1;
+      background-color: brown;
+    }
+
+    aside {
+      width: 220px;
+      background-color: lightsalmon;
+    }
+
+    @media screen and (max-width: 800px) {
+      main {
+        flex-direction: column;
+      }
+
+      nav,
+      aside {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>header</header>
+  <main>
+    <article>article</article> <!-- 主内容 -->
+    <nav>nav</nav>
+    <aside>aside</aside>
+  </main>
+  <footer>footer</footer>
+</body>
+
+</html>

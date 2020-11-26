@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" onclick="resizeWindow()"
+  value="Resize window">
+
+  <script>
+    let pageWidth = window.innerWidth,
+        pageHeight = window.innerHeight;
+    if (typeof pageWidth != "number") {
+        //  判断是否处于标准模式
+        if (document.compatMode == "CSS1Compat"){
+        pageWidth = document.documentElement.clientWidth;
+        pageHeight = document.documentElement.clientHeight;
+        } else {
+          pageWidth = document.body.clientWidth;
+          pageHeight = document.body.clientHeight;
+        }
+    }
+
+    console.log('pageWidth',pageWidth);
+    console.log('pageHeight',pageHeight);
+
+    function resizeWindow()
+    {
+      window.resizeTo(500,300)
+    }
+  </script>
+</body>
+</html>
